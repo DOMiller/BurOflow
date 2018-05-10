@@ -9,6 +9,7 @@ int main()
 	char instring[16], outstring[16];
 
 	while (1) {
+		instring[0] = '.';
 		printf("\n\nYour test word (nax 15 non-whitespace chars; '.' to stop)?  ");
 		scanf("%15s", instring);
 		rewind(stdin);
