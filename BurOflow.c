@@ -1,9 +1,7 @@
-// BurOflow.cpp : Defines the entry point for the console application.
-//
+// BurOflow.cpp : For evaluation of Static Analysis buffer overflow check
 
-#include "stdafx.h"
-#include "string.h"
-#include "stdio.h"
+#include <string.h>
+#include <stdio.h>
 
 int main()
 {
