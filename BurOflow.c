@@ -3,21 +3,24 @@
 #include <string.h>
 #include <stdio.h>
 
+#define BUFSIZE 16
+
 int main()
 {
 	int strlength;
-	char instring[16], outstring[16];
+	char instring[BUFSIZE], outstring[BUFSIZE];
 
 	while (1) {
-		printf("\n\nYour test word (max 15 non-whitespace chars; '.' to stop)?  ");
-		scanf("%15s", instring);
+		rewind(stdin);
+		printf("\n\nYour test word (max %d non-whitespace chars; '.' to stop)?  ", BUFSIZE - 1);
+		sprintf(outstring, "%%%ds", BUFSIZE - 1);
+		scanf(outstring, instring);
 		rewind(stdin);
 		if (instring[0] == '.') break;
 		sprintf(outstring, instring);
 		strlength = strlen(outstring);
-		if (strlength < 16) printf("\n Your test phrase is:  %s  (%d chars)", outstring, strlength);
-		else printf("\n*** BUFFER OVERFLOW (by %d chars) ***", strlength - 15);
+		if (strlength < BUFSIZE) printf("\n   Your test word is:  %s  (%d chars)", outstring, strlength);
+		else printf("\n   *** BUFFER OVERFLOW (by %d chars) ***", strlength - BUFSIZE + 1);
 	}
 	return 0;
 }
-
