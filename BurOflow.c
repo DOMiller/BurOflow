@@ -11,7 +11,6 @@ int main()
 	char instring[BUFSIZE], outstring[BUFSIZE];
 
 	while (1) {
-		instring[0] = '.';
 		rewind(stdin);
 		printf("\n\nYour test word (max %d non-whitespace chars; '.' to stop)?  ", BUFSIZE - 1);
 		sprintf(outstring, "%%%ds", BUFSIZE - 1);
